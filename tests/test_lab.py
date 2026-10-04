@@ -51,6 +51,7 @@ def test_mlflow_end_to_end(tmp_path, monkeypatch):
     import api
 
     client = TestClient(api.app)
+    assert client.get("/", follow_redirects=False).headers["location"] == "/docs"
     assert client.get("/health").json()["status"] == "ok"
     body = client.post("/predict", json={}).json()
     assert 0 <= body["churn_probability"] <= 1

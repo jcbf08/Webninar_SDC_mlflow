@@ -6,6 +6,7 @@
 import mlflow
 import pandas as pd
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import RedirectResponse
 from mlflow import MlflowClient
 from mlflow.exceptions import MlflowException
 from pydantic import BaseModel
@@ -46,6 +47,12 @@ class Customer(BaseModel):
     PaymentMethod: str = "Electronic check"
     MonthlyCharges: float = 95.5
     TotalCharges: float = 191.0
+
+
+@app.get("/", include_in_schema=False)
+def root():
+    """La raíz lleva directo a la página interactiva."""
+    return RedirectResponse("/docs")
 
 
 @app.get("/health")

@@ -28,6 +28,7 @@ reject:  ## Demo: un modelo malo intenta llegar a producción
 	-python src/promote.py
 
 serve:  ## 5 API con el @champion en el puerto 8000
+	@echo "Abre el puerto 8000 desde la pestaña Ports (la raíz te lleva a /docs)"
 	python -m uvicorn api:app --app-dir src --host 0.0.0.0 --port 8000
 
 all: train tune register promote  ## Pasos 1 a 4 de una vez

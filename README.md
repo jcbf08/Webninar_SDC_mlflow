@@ -35,7 +35,7 @@ la campaña de retención gane dinero. Todo el ciclo queda gobernado por MLflow.
 | `make register` | El mejor run pasa al Model Registry como `@challenger` | 3 s |
 | `make promote` | El quality gate lo promueve a `@champion` | 5 s |
 | `make reject` | Un modelo malo intenta llegar a producción y el gate lo frena | 15 s |
-| `make serve` | API en el puerto 8000 (probar en `/docs`) | – |
+| `make serve` | API en el puerto 8000 (abre `/docs` automáticamente) | – |
 
 `make all` ejecuta los pasos 1 a 4 de una vez (menos de 2 minutos). `make clean` deja todo en cero.
 
