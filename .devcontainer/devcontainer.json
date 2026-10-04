@@ -1,0 +1,14 @@
+{
+  "name": "MLflow Lab",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "postCreateCommand": "make setup",
+  "forwardPorts": [5000, 8000],
+  "portsAttributes": {
+    "5000": { "label": "MLflow UI" },
+    "8000": { "label": "API" }
+  },
+  "containerEnv": { "MLFLOW_DISABLE_AGENT_HINT": "1" },
+  "customizations": {
+    "vscode": { "extensions": ["ms-python.python", "charliermarsh.ruff"] }
+  }
+}

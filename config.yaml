@@ -1,0 +1,19 @@
+# Toda la configuración del laboratorio en un solo lugar.
+experiment: telco-churn
+model_name: telco-churn-classifier
+seed: 42
+test_size: 0.2
+cv_folds: 5
+n_trials: 25
+
+# Supuestos de negocio de la campaña de retención (USD por cliente)
+business:
+  clv_saved: 500       # valor de retener a un cliente que se iba
+  offer_cost: 60       # costo de la oferta por cliente contactado
+  success_rate: 0.35   # % de clientes en riesgo que aceptan y se quedan
+
+# Quality gate: reglas para pasar de @challenger a @champion
+gate:
+  min_auc: 0.82
+  min_recall: 0.50
+  min_gain: 0.002      # mejora mínima de AUC frente al champion actual
